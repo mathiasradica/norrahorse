@@ -1,0 +1,191 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Norra Horse{% endblock %}
+{% block main %}
+<div style="background-color:#e77110;color:white; font-size:13px; font-weight:bold"
+    class="banner text-center text-break">
+    <span>
+        Rehut suoraan ovellesi - maksuton toimitus kaikkiin tilauksiin! Minimitilausmäärä 2 tuotetta.
+    </span>
+</div>
+<main>
+    <div id="mainCarousel" class="carousel slide ml-2 mr-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div style="background: url('img/norra-old.jpg');
+            height: 504px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;" class="main-carousel-image carousel-item active">
+                <a href="#">
+                    <div class="carousel-caption d-block">
+                        <h1 style="margin-bottom:60px;">
+                            <span style="font-size: 48px; color:white;">Some representative placeholder
+                                content</span>
+                        </h1>
+                        <button class="btn carousel-btn"> KOTIMAISET
+                            HEVOSREHUT POHJOISIIN OLOIHIN </button>
+                    </div>
+                </a>
+            </div>
+            <div style="background: url('img/norrslide2.jpg');
+            height: 504px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; transition:0.3s ease" class="main-carousel-image carousel-item">
+                <a href="#">
+                    <div class="carousel-caption d-block">
+                        <h1 style="margin-bottom:60px;">
+                            <span style="font-size: 48px; color:white;">Some representative placeholder
+                                content</span>
+                        </h1>
+                        <button class="btn carousel-btn"> KOTIMAISET
+                            HEVOSREHUT POHJOISIIN OLOIHIN </button>
+                    </div>
+                </a>
+            </div>
+            <div style="background: url('img/norra_karusellikuva_nuoriso_3000x1100_fed485d3-f2e1-42d9-84c1-0afe9abac6f6_4472x.jpg');
+            height: 504px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; transition:0.3s ease" class="main-carousel-image carousel-item">
+                <a href="#">
+                    <div class="carousel-caption d-block">
+                        <h1 style="margin-bottom:60px;">
+                            <span style="font-size: 48px; color:white;">Some representative placeholder
+                                content</span>
+                        </h1>
+                        <button class="btn carousel-btn"> KOTIMAISET
+                            HEVOSREHUT POHJOISIIN OLOIHIN </button>
+                    </div>
+                </a>
+            </div>
+            <div style="background: url('img/norra_menu_1920x704.jpg');
+            height: 504px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; transition:0.3s ease" class="main-carousel-image carousel-item">
+                <a href="#">
+                    <div class="carousel-caption d-block">
+                        <h1 style="margin-bottom:60px;">
+                            <span style="background-color: black;color:white;">Some representative placeholder
+                                content</span>
+                        </h1>
+                        <button class="btn carousel-btn"> KOTIMAISET
+                            HEVOSREHUT POHJOISIIN OLOIHIN </button>
+                    </div>
+                </a>
+            </div>
+            <div style="background: url('img/black-horse.jpg');
+            height: 504px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; transition:0.3s" class="main-carousel-image carousel-item">
+                <a href="#">
+                    <div class="carousel-caption d-block">
+                        <h1 style="margin-bottom:60px;">
+                            <span style="font-size: 48px; color:white;">Some representative placeholder
+                                content</span>
+                        </h1>
+                        <button class="btn carousel-btn"> KOTIMAISET
+                            HEVOSREHUT POHJOISIIN OLOIHIN </button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-auto my-auto justify-content-center mt-5">
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false"
+            data-bs-wrap="false">
+            <div class="carousel-inner" role="listbox">
+                {% if products %}
+                {% for product in products %}
+                <div class="carousel-item">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-img d-flex justify-content-center">
+                                <a href="">
+                                    <img style="height:150px" src="{{product.imageUrl}}" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <a class="card-title" href="#">
+                                    <h5 style="color:#5f5f5f" class="card-title text-center">{{product.title}}</h5>
+                                </a>
+                                <div class="price-box d-flex justify-content-between align-items-center">
+                                    <span style="color:#5f5f5f" class="fs-5 price {{product.url}}"></span>
+                                    <span style="font-size:x-small" class="text-muted vat {{product.url}}"></span>
+                                </div>
+                                <div class="btn-box d-flex align-items-end">
+                                    <a style="text-decoration-line:none" class="card-btn" href="{{product.url}}">Lue
+                                        lisää</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <a class="carousel-control-prev bg-transparent" href="#productCarousel" role="button" data-bs-slide="prev"
+                onClick="handlePreviousLink()">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <div>
+                <a class="carousel-control-next bg-transparent" href="#productCarousel" role="button"
+                    data-bs-slide="next" onClick="handleNextLink()" tabindex="-1" onfocus="this.blur()">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: url('img/pikkusankari_norrahorse_banneri_1800x500_3f9936cd-b48f-4758-89be-42a69913fe26.jpg');
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative" class="row mt-5 front-page-image-1 front-page-image-1-container">
+        <div class="front-page-image-1-overlay w-100">
+            <h2 class="mb-3" style="color:white; font-size:40px">PIKKU SANKARI</h2>
+            <div class="d-flex align-items-end">
+                <button class="btn carousel-btn mt3">
+                    PONIEN OMA REHU, TUTUSTU JA OSTA </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5 front-page-image-2-container">
+        <div class="col-lg-6">
+            <img class="img-fluid mt-3 mb-3" src="img/norra_menu_logo_vaaka_1080x.png" alt="">
+        </div>
+        <div class="col-lg-6 hidden">
+            <h3 class="mt-4 mb-4">
+                <span style="font-size:22px; color:#5f5f5f; font-weight:bold">OPTIMOI HEVOSESI RUOKINTA</span>
+            </h3>
+            <p style="font-size:16px; color:#5f5f5f">
+                <span>Maksuttomalla</span>
+                <a href="https://norramenu.lantmannenagro.fi/" title="https://norramenu.lantmannenfeed.fi/"
+                    target="_blank" rel="noopener">
+                    <span>Norra Menu -ruokintalaskurilla</span>
+                </a>
+                <span>
+                    teet helposti juuri sinun hevosellesi sopivan, turvallisen ja täysipainoisen
+                    ruokintasuunnitelman. Harkiten suunniteltu ruokinta tukee hevosen hyvinvointia ja suorituskykyä.
+                </span>
+            </p>
+        </div>
+
+    </div>
+</main>
+<script src="js/product-carousel.js"></script>
+<script src="js/product-details.js"></script>
+{% endblock %}

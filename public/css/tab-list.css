@@ -1,0 +1,64 @@
+.tab-long-description {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, #e1771f 90.45px, lightgray 90.45px) 1;
+}
+
+.tab-contents {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      lightgray 134.45px,
+      #e1771f 134.45px,
+      #e1771f 185.58px,
+      lightgray 185.58px
+    )
+    1;
+}
+
+.tab-more-information {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      lightgray 229.58px,
+      #e1771f 229.58px,
+      #e1771f 300.71px,
+      lightgray 300.71px
+    )
+    1;
+}
+
+.tab-usage-rate {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      lightgray 344.71px,
+      #e1771f 344.71px,
+      #e1771f 438.71px,
+      lightgray 438.71px
+    )
+    1;
+}
+.tab-features {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      lightgray 482.71px,
+      #e1771f 482.71px,
+      #e1771f 575.38px,
+      lightgray 575.38px
+    )
+    1;
+}
+
+td{
+  width:50%;
+  height:48px;
+}
+
+table:not(#tab-more-information) tr:nth-of-type(odd){
+  background-color:lightgray ;
+}
+
+table:not(#tab-more-information) tr:nth-of-type(even){
+  background-color:#faf8f6;
+}
