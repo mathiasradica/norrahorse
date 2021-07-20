@@ -116,6 +116,12 @@ body {
       padding-top:0;
       padding-right:0;
     }
+
+    .product-tab-list{
+      visibility:hidden;
+      max-height: 0;
+      overflow: hidden;
+    }
   }
   
   @media screen and (min-width: 992px) {
@@ -146,6 +152,12 @@ body {
       padding-left:24px;
       padding-top:16px;
       padding-right:24px;
+    }
+
+    .product-accordion{
+      visibility:hidden;
+      max-height: 0;
+      overflow: hidden;
     }
   }
   
