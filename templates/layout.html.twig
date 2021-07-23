@@ -10,8 +10,15 @@
         <a class="logo" href="./">
             <img src="img/norra_logo_musta_laatikko_1.png" alt="">
         </a>
-        <a class="shopping-cart" href="">
+        <a class="shopping-cart d-flex" style="text-decoration:none; position:relative" href="checkout/cart">
             <img src="img/shopping-cart.png" alt="">
+            <div class="shopping-cart-summary invisible" style="margin-top:-10px; margin-left:30px">
+                <span class="shopping-cart-items-count text-center"></span>
+                <div class="d-inline">
+                    <span class="shopping-cart-total fw-bold"></span>
+                    <span style="font-size:10px; color:white" class="d-block text-end">Sis. ALV:n</span>
+                </div>
+            </div>
         </a>
     </div>
 
@@ -19,8 +26,15 @@
         <a class="logo" href="./">
             <img src="img/norra_logo_musta_laatikko_1.png" alt="">
         </a>
-        <a class="shopping-cart" href="">
+        <a class="shopping-cart d-flex" style="text-decoration:none; position:relative" href="checkout/cart">
             <img src="img/shopping-cart.png" alt="">
+            <div class="shopping-cart-summary invisible" style="margin-top:-10px; margin-left:30px">
+                <span class="shopping-cart-items-count text-center"></span>
+                <div class="d-inline">
+                    <span class="shopping-cart-total fw-bold"></span>
+                    <span style="font-size:10px; color:white" class="d-block text-end">Sis. ALV:n</span>
+                </div>
+            </div>
         </a>
     </div>
 
@@ -33,7 +47,7 @@
     </div>
     <div id="mySidenav" class="sidenav d-lg-none">
         <div style="padding-top:6px;padding-bottom:6px; border-bottom:2px solid lightgray">
-            <a href="javascript:void(0)" onclick="closeNav()" style="cursor:context-menu">
+            <a href="" onclick="closeNav()" style="cursor:context-menu">
                 <span style="font-size: 32px; color:#e77110">&times</span>
                 <span style="font-size: 12px;">&nbsp VALIKKO </span>
             </a>
@@ -123,4 +137,5 @@
     }
 </script>
 <script src="js/footer-accordion.js"></script>
+<script src="js/cart.js"></script>
 {% endblock %}

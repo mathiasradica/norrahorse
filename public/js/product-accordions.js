@@ -47,18 +47,17 @@ for (let i = 0; i < productFeaturesAcc.length; i++) {
         $(".product-features-spinner-border").removeClass("d-none")
         let url = window.location.pathname.split("/").pop()
 
-        $.get("api/products/" + url, {}, null, 'json')
-          .then(function (data) {
-            $(".product-features-spinner-border").addClass("d-none")
-            $.each(data.features, function (key, value) {
-              $(".product-features-table").html(`<tr><td>${key}</td><td>${value}</td></tr>`)
-            })
-            productFeaturesPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
-            productPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + productPanel1.scrollHeight + "px"
-            productFeaturesPanel2.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
-            productPanel2.style.maxHeight = productFeaturesPanel1.scrollHeight + productPanel1.scrollHeight + "px"
-          }, null, null)
-      }
+        $.get("api/products/" + url, {}, function (data) {
+          $(".product-features-spinner-border").addClass("d-none")
+          $.each(data.features, function (key, value) {
+            $(".product-features-table").html(`<tr><td>${key}</td><td>${value}</td></tr>`)
+          })
+          productFeaturesPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
+          productPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + productPanel1.scrollHeight + "px"
+          productFeaturesPanel2.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
+          productPanel2.style.maxHeight = productFeaturesPanel1.scrollHeight + productPanel1.scrollHeight + "px"
+        }, 'json')
+      }   
       productFeaturesPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
       productPanel1.style.maxHeight = productFeaturesPanel1.scrollHeight + productPanel1.scrollHeight + "px"
       productFeaturesPanel2.style.maxHeight = productFeaturesPanel1.scrollHeight + "px"
