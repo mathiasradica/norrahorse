@@ -55,10 +55,10 @@ td{
   height:48px;
 }
 
-table:not(#tab-more-information):not(#accordion-more-information) tr:nth-of-type(odd){
+.tab:not(#tab-more-information):not(#accordion-more-information) tr:nth-of-type(odd){
   background-color:lightgray ;
 }
 
-table:not(#tab-more-information):not(#accordion-more-information) tr:nth-of-type(even){
+.tab:not(#tab-more-information):not(#accordion-more-information) tr:nth-of-type(even){
   background-color:#faf8f6;
 }

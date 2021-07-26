@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $.get("api/cart", {}, function (data) {
-        $("form").removeClass("invisible")
+    $.get("/norrahorse/public/api/cart", {}, function (data) {
+        $(".add-to-cart-form").removeClass("invisible")
         if (data.items.length>0) {
             $(".shopping-cart-summary").removeClass("invisible")
             $(".shopping-cart-items-count").text(data.items.length)
@@ -13,7 +13,7 @@ function addToCart() {
     $(".order-btn").css("opacity", 0.5)
     $(".order-btn span").addClass("d-none")
     $(".order-btn-spinner-border").removeClass("d-none")
-    $.post("api/add",
+    $.post("/norrahorse/public/api/add",
         { 'product': $('#url-input').val(), 'quantity': $('#quantity-input').val() },
         function (data) {
             if (data) {

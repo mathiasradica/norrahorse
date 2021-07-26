@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Product;
+
 class Cart
 {
     /**
@@ -9,15 +11,9 @@ class Cart
      */
     private $items;
 
-    /**
-     * @var float
-     */
-    private $total;
-
     public function __construct()
     {
         $this->items = [];
-        $this->total=0;
     }
 
     public function getItems(): Array
@@ -38,7 +34,6 @@ class Cart
         }
 
         $this->items[] = $item;
-        $this->total+=$item->getTotal();
         
         return $this;
     }
@@ -46,9 +41,10 @@ class Cart
     public function removeItem(CartItem $item): self
     {
         foreach($this->getItems() as $index => $_item){
+            
             if($item==$_item){
+                
                 \array_splice($this->items, $index, 1);
-                $this->total-=$item->getTotal();
             }
         }
 
@@ -57,12 +53,14 @@ class Cart
 
     public function removeItemByUrl(string $url): self
     {
-        $product=$this->getDoctrine()->getRepository(Product::class)->findOneBy(['url'=>$url]);
         $items=$this->getItems();
 
         foreach($items as $item){
-            if($item->getProduct()==$product){
+            
+            if($item->getProduct()->getUrl()==$url){
+                
                 $this->removeItem($item);
+                
                 break;
             }
         }
@@ -76,6 +74,7 @@ class Cart
     public function removeItems(): self
     {
         foreach ($this->getItems() as $item) {
+            
             $this->removeItem($item);
         }
 
@@ -90,31 +89,33 @@ class Cart
         $total = 0.00;
 
         foreach ($this->getItems() as $item) {
+            
             $total += $item->getTotal();
         }
 
         return $total;
     }
 
-    public function increaseQuantity(string $url){
-        $items=$this->getItems();
-        $product=$this->getDoctrine()->getRepository(Product::class)->findOneBy(['url'=>$url]);
+    public function getTotalVat(){
 
-        foreach($items as $item){
-            if($item->getProduct()==$product){
-                $item->setQuantity($item->getQuantity+1);
-                break;
-            }
+        $totalVat = 0.00;
+
+        foreach ($this->getItems() as $item) {
+            
+            $totalVat += $item->getTotal()*$item->getProduct()->getVat();
         }
+
+        return $totalVat;
     }
 
-    public function decreaseQuantity(string $url){
+    public function changeQuantity(string $url, $quantity){
+        
         $items=$this->getItems();
-        $product=$this->getDoctrine()->getRepository(Product::class)->findOneBy(['url'=>$url]);
 
         foreach($items as $item){
-            if($item->getProduct()==$product){
-                $item->setQuantity($item->getQuantity-1);
+            
+            if($item->getProduct()->getUrl()==$url){
+                $item->setQuantity($quantity);
                 break;
             }
         }

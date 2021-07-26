@@ -1,0 +1,288 @@
+{% extends "base.html.twig" %}
+{% block title %}Kassalle{% endblock %}
+
+{% block layout %}
+<div class="d-none d-lg-block">
+    <div style="height:74px; width:100%; background-color:#020c10; color:white" class="d-flex justify-content-between">
+        <a class="logo h-100" href="/norrahorse/public" style="line-height:74px">
+            <img style="height:60px" class="ml-3 mt-1" src={{asset("img/norra_logo_musta_laatikko_1.png")}} alt="">
+        </a>
+        <span class="fs-3 fw-bold h-100" style="line-height:70px">KASSALLE</span>
+        <div class="d-inline me-3">
+            <a href="/norrahorse/public"
+                style="color:white; font-size:13px; text-decoration:none; line-height:74px">Jatka ostoksia</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="d-inline bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="shipping-mobile-header-container d-lg-none">
+    <div style="height:148px; width:100%; background-color:#020c10; color:white" class="d-flex justify-content-between">
+        <div class="d-inline d-flex ms-3">
+            <div class="mt-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+                <a href="/norrahorse/public"
+                    style="color:white; font-size:13px; text-decoration:none; line-height:74px">Jatka ostoksia</a>
+            </div>
+        </div>
+        <div>
+            <a class="logo h-100 ps-2" href="/norrahorse/public" style="line-height:74px">
+                <img style="height:60px" class="mt-1" src={{asset("img/norra_logo_musta_laatikko_1.png")}} alt="">
+            </a>
+            <div class="fs-6 fw-bold text-center" style="line-height:70px">KASSALLE</div>
+        </div>
+        <div class="d-inline d-flex me-3">
+            <div class="mt-auto" style="cursor:pointer" onclick="document.getElementsByClassName('shipping-form-container')[0].classList.add('d-none');
+            document.getElementsByClassName('shipping-progress-indicator-container')[0].classList.add('d-none');
+            document.getElementsByClassName('expanded-total-and-tax-table-container')[0].classList.remove('d-none');
+            document.getElementsByClassName('shipping-main-content-container')[0].classList.remove('mt-4');
+            document.getElementsByClassName('shipping-mobile-header-container')[0].classList.add('d-none')
+            ">
+                <span
+                    style="color:white; font-size:13px; text-decoration:none; line-height:74px">Tilauksesi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="d-inline bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shipping-progress-indicator-container d-lg-block">
+    <div class="d-flex mt-4 ps-4 pe-4 justify-content-around justify-content-lg-center">
+        <div style="position:relative" class="me-auto me-lg-1">
+            <svg style="color:#5f5f5f" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+            </svg>
+            <span style="color:white; position:absolute; left:8px; top:4px; font-size:12px">1</span>
+            <span style="font-size:13px; color:#5f5f5f; height:24px; line-height:24px"
+                class="ms-3 me-3 fw-bold">Toimituskulut</span>
+        </div>
+    
+        <div class="d-none d-md-inline-block me-3" style="height:24px; line-height:24px">
+            <img src={{asset("img/line.png")}} alt="">
+        </div>
+        <div style="position:relative" class="ms-auto ms-lg-1">
+            <svg style="color:#5f5f5f" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            </svg>
+            <span style="color:#5f5f5f; position:absolute; left:8px; top:4px; font-size:12px">2</span>
+            <span style="font-size:13px; color:#5f5f5f; height:24px; line-height:24px" class="ms-3 me-3">Maksu</span>
+        </div>
+    </div>
+</div>
+<div class="shipping-main-content-container d-flex m-lg-4 mt-4" style="color:#5f5f5f;">
+    <div class="shipping-form-container d-lg-inline-block bg-white p-4 me-lg-4 flex-grow-1">
+        <div class="fw-bold fs-6 w-100 pb-4 mb-4" style="border-bottom:1px solid lightgray">Toimitusosoite</div>
+        <form class="shipping-form" action="">
+            <div>
+                <label>Etunimi *</label>
+                <input type="text" id="firstName" class="form-control" name="firstName" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                oninput="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label>Sukunumi *</label>
+                <input type="text" class="form-control" name="lastName" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label>Yritys</label>
+                <input type="text" class="form-control" name="company">
+            </div>
+            <div>
+                <label>Katuosoite *</label>
+                <input type="text" class="form-control" name="streetAddress" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label></label>
+                <input type="text" class="form-control" name="firstName">
+            </div>
+            <div>
+                <label>Postinumero *</label>
+                <input type="text" class="form-control" name="zipCode" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label>Paikkakunta *</label>
+                <input type="text" class="form-control" name="city" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label>Puhelinumero *</label>
+                <input type="text" class="form-control" name="telephone" value="+358" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <label>Säkhöpostiosoite *</label>
+                <input type="text" class="form-control" name="email" required
+                oninvalid="this.setCustomValidity('Vaadittu kenttä.')"
+                onvalid="this.setCustomValidity('')">
+                <p></p>
+            </div>
+            <div>
+                <input style="width:20px; height:20px; cursor:pointer; border-radius:0" type="checkbox"
+                    name="marketing">
+                <label class="align-top">
+                    Minulle saa lähettää Norra Horsen markkinointimateriaalia
+                </label>
+            </div>
+            <div>
+                <label>Toimituksen lisätiedot </label>
+                <textarea style="border-radius:0;" class="form-control" name="deliveryInfo"></textarea>
+            </div>
+            <span>Viestiin mahtuu maksimissaan 235 merkkiä</span>
+            <input style="width:220px; height:50px" type="submit" id="submit" class="btn checkout-page-btn float-end mt-5"
+                value="Seuraava">
+        </form>
+    </div>
+    <div style="height:fit-content" class="total-and-tax-table-container mb-2 p-4 bg-white d-none d-lg-inline-block d-flex">
+        <div class="d-inline-block">
+            <h6 class="fw-bold text-left">TILAUKSESI</h6>
+        </div>
+        <hr>
+        <table class="total-and-tax-table w-100">
+            <tr>
+                <td>Kokonaishinta ilman ALV:tä</td>
+                <td>{{(cart.total-cart.totalVat)|format_currency('EUR', locale='fi')}}</td>
+            </tr>
+            <tr>
+                <td>Kokonaishinta ALV:än kanssa</td>
+                <td>{{cart.total|format_currency('EUR', locale='fi')}}</td>
+            </tr>
+            <tr>
+                <td>Verot</td>
+                <td>{{cart.totalVat|format_currency('EUR', locale='fi')}}</td>
+            </tr>
+            <tr>
+                <td>Toimituskulut</td>
+                <td>Ilmainen</td>
+            </tr>
+            <tr class="fw-bold">
+                <td>Kokonaishinta ALV:än kanssa</td>
+                <td>{{cart.total|format_currency('EUR', locale='fi')}}</td>
+            </tr>
+        </table>
+
+        <div class="d-none d-lg-inline-block">
+            <div style="font-size:12px; background-color:white; color:#5f5f5f; border-top:1px solid lightgray; border-left:1px solid lightgray; border-right:1px solid lightgray;"
+                class="accordion_button d-flex align-items-center">
+                <b>{{cart.items|length}} TUOTE OSTOSKORISSA</b>
+                <div style="--color:#5f5f5f" class="plus-icon"></div>
+            </div>
+            <div style="border-left:1px solid lightgray; border-right:1px solid lightgray; border-bottom:1px solid lightgray; background-color:white; color:#5f5f5f"
+                class="shipping-accordion-panel panel">
+                {% for item in cart.items %}
+                <div class="pt-3 pr-3 pb-3 d-flex">
+                    <div class="d-inline-block">
+                        <img style="height:75px" src={{asset(item.product.imageUrl)}} alt="">
+                    </div>
+                    <div class="inline-block">
+                        <div style="font-size:12px" class="fw-bold">{{item.product.title}}</div>
+                        <div style="font-size:12px">Kpl/tn: {{item.quantity}}</div>
+                        <div style="font-size:10px">Verollinen: {{item.total|format_currency('EUR', locale='fi')}}</div>
+                        <div style="font-size:10px">Veroton: {{(item.total*(1-item.product.vat))|format_currency('EUR',
+                            locale='fi')}}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="expanded-total-and-tax-table-container bg-white p-4 d-none d-lg-none w-100 h-100">
+        <div style="height:fit-content" class="">
+            <div class="w-100 d-block">
+                <div class="d-inline-block">
+                    <h6 class="fw-bold text-left">TILAUKSESI</h6>
+                </div>
+                <div class="d-flex d-inline-block" onclick="document.getElementsByClassName('shipping-form-container')[0].classList.remove('d-none');
+                document.getElementsByClassName('shipping-progress-indicator-container')[0].classList.remove('d-none');
+                document.getElementsByClassName('expanded-total-and-tax-table-container')[0].classList.add('d-none');
+                document.getElementsByClassName('shipping-main-content-container')[0].classList.add('mt-4');
+                document.getElementsByClassName('shipping-mobile-header-container')[0].classList.remove('d-none')
+                ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-x-lg ms-auto" viewBox="0 0 16 16">
+                        <path
+                            d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
+                    </svg>
+                </div>
+            </div>
+            <hr>
+            <table class="d-block total-and-tax-table w-100">
+                <tr>
+                    <td>Kokonaishinta ilman ALV:tä</td>
+                    <td>{{(cart.total-cart.totalVat)|format_currency('EUR', locale='fi')}}</td>
+                </tr>
+                <tr>
+                    <td>Kokonaishinta ALV:än kanssa</td>
+                    <td>{{cart.total|format_currency('EUR', locale='fi')}}</td>
+                </tr>
+                <tr>
+                    <td>Verot</td>
+                    <td>{{cart.totalVat|format_currency('EUR', locale='fi')}}</td>
+                </tr>
+                <tr>
+                    <td>Toimituskulut</td>
+                    <td>Ilmainen</td>
+                </tr>
+                <tr class="fw-bold">
+                    <td>Kokonaishinta ALV:än kanssa</td>
+                    <td>{{cart.total|format_currency('EUR', locale='fi')}}</td>
+                </tr>
+            </table>
+
+            <div>
+                <div style="font-size:12px; background-color:white; color:#5f5f5f; border-top:1px solid lightgray; border-left:1px solid lightgray; border-right:1px solid lightgray;"
+                    class="accordion_button d-flex align-items-center">
+                    <b>{{cart.items|length}} TUOTE OSTOSKORISSA</b>
+                    <div style="--color:#5f5f5f" class="plus-icon"></div>
+                </div>
+                <div style="border-left:1px solid lightgray; border-right:1px solid lightgray; border-bottom:1px solid lightgray; background-color:white; color:#5f5f5f"
+                    class="shipping-accordion-panel panel">
+                    {% for item in cart.items %}
+                    <div class="pt-3 pr-3 pb-3 d-flex">
+                        <div class="d-inline-block">
+                            <img style="height:75px" src={{asset(item.product.imageUrl)}} alt="">
+                        </div>
+                        <div class="inline-block">
+                            <div style="font-size:12px" class="fw-bold">{{item.product.title}}</div>
+                            <div style="font-size:12px">Kpl/tn: {{item.quantity}}</div>
+                            <div style="font-size:10px">Verollinen: {{item.total|format_currency('EUR', locale='fi')}}
+                            </div>
+                            <div style="font-size:10px">Veroton:
+                                {{(item.total*(1-item.product.vat))|format_currency('EUR',
+                                locale='fi')}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src={{asset("js/footer-accordion.js")}}></script>
+<script src={{asset("js/form-validation.js")}}></script>
+{% endblock %}

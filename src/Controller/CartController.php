@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Cart;
 use App\Storage\CartSessionStorage;
+use App\Entity\Product;
 
 class CartController extends AbstractController
 {
@@ -45,49 +46,35 @@ class CartController extends AbstractController
     {
         $cart=$this->_cartSessionStorage->getCart();
         $cart->removeItems();
-        $this->cartSessionStorage->setCart($cart);
+        $this->_cartSessionStorage->setCart($cart);
 
         return $this->redirectToRoute('cart_checkout');
     }
 
     /**
-     * @Route("/checkout/remove", name="cart_checkout_remove")
+     * @Route("/checkout/remove/{url}", name="cart_checkout_remove", methods={"GET"})
      */
     public function removeItem(string $url): Response
     {
         $cart=$this->_cartSessionStorage->getCart();
-        
+
         $cart->removeItemByUrl($url);
         
-        $this->cartSessionStorage->setCart($cart);
+        $this->_cartSessionStorage->setCart($cart);
 
         return $this->redirectToRoute('cart_checkout');
     }
 
     /**
-     * @Route("/checkout/decrease/{url}", name="cart_checkout_decrease")
+     * @Route("/checkout/change", name="cart_checkout_change", methods={"POST"})
      */
-    public function decreaseQuantity(string $url): Response
+    public function changeQuantity(Request $request): Response
     {
         $cart=$this->_cartSessionStorage->getCart();
         
-        $cart->decreaseQuantity($url);
+        $cart->changeQuantity($request->get('url'), $request->get('quantity'));
 
-        $this->cartSessionStorage->setCart($cart);
-
-        return $this->redirectToRoute('cart_checkout');
-    }
-
-    /**
-     * @Route("/checkout/increase/{url}", name="cart_checkout_increase")
-     */
-    public function increaseQuantity(string $url): Response
-    {
-        $cart=$this->_cartSessionStorage->getCart();
-        
-        $cart->increaseQuantity($url);
-
-        $this->cartSessionStorage->setCart($cart);
+        $this->_cartSessionStorage->setCart($cart);
 
         return $this->redirectToRoute('cart_checkout');
     }
@@ -100,7 +87,7 @@ class CartController extends AbstractController
         $cart=$this->_cartSessionStorage->getCart();
 
         return $this->render('cart/shipping.html.twig', [
-            'total' => $cart->getTotal()
+            'cart' => $cart
         ]);
     }
 }

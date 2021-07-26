@@ -28,7 +28,7 @@
   .plus-icon {
     width: 9px;
     height: 1px;
-    background-color: white;
+    background-color: var(--color);
     background-repeat: no-repeat;
     position: relative;
     margin-right:0;
@@ -43,7 +43,7 @@
     position: absolute;
     content: '';
     transform:rotate(90deg);
-    background-color: white;
+    background-color: var(--color);
     margin-right:0;
     margin-left: auto;
   }
@@ -152,3 +152,9 @@
 .product_accordion_button.open .bi-chevron-down {
     transform: rotateZ(180deg);
 }
+
+/* Shipping accordion */
+
+.shipping-accordion-panel>div:not(:last-of-type){
+    border-bottom:1px solid lightgray;
+  }

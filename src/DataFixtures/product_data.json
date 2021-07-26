@@ -5,7 +5,7 @@
             "url": "norra-pikku-sankkari-taydennysrehu-20-kg",
             "imageUrl": "img/924610.jpg",
             "price": 28.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Hyvälaatuisia rasvahappoja",
                 "Reilusti kuituja ja antioksidantteja",
@@ -67,7 +67,7 @@
             "url": "norra-optimal-taydennysrehu-20-kg",
             "imageUrl": "img/924620.jpg",
             "price": 25.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Kauraton, maittava täydennysrehu",
                 "Runsaasti hyvin sulavia, turvallisina energialähteinä toimivia kuituja",
@@ -131,7 +131,7 @@
             "url": "norra-ade-vitamiiniseos-6-kg",
             "imageUrl": "img/923884.jpg",
             "price": 25.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Helppokäyttöinen ja maittava rae",
                 "Sisältää runsaasti E-vitamiinia",
@@ -195,7 +195,7 @@
             "url": "norra-sankari-taydennysrehu-20-kg",
             "imageUrl": "img/924641.jpg",
             "price": 29.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Maittavaa energiaa ja hyvälaatuisia rasvahappoja",
                 "Monipuolinen ja maittava – mukana omenan maku!",
@@ -262,7 +262,7 @@
             "url": "norra-pure-protein-taydennysrehu-20-kg",
             "imageUrl": "img/924651.jpg",
             "price": 26.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Maittava rypsipohjainen valkuaistäydennysrehu",
                 "Rypsistä aminohappoja, mutta vähän tärkkelystä"
@@ -313,7 +313,7 @@
             "url": "norra-prima-kivennainen-20-kg",
             "imageUrl": "img/924631.jpg",
             "price": 25.00,
-            "vat": 14,
+            "vat": 0.14,
             "sellingPoints": [
                 "Monipuolinen ja maittava, silti vain vähän sokeria",
                 "Sisältää helposti imeytyviä orgaanisia hivenaineita",
